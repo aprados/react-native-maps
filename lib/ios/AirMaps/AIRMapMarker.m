@@ -306,9 +306,13 @@ NSInteger _zIndexBeforeOpen = 0;
 
 - (void)setZIndex:(NSInteger)zIndex
 {
-    _zIndexBeforeOpen = zIndex;
-    _zIndex = _calloutIsOpen ? zIndex + CALLOUT_OPEN_ZINDEX_BASELINE : zIndex;
-    self.layer.zPosition = zIndex;
+    if (zIndex == 2) {  // added line
+        [self setSelected:YES animated:NO]; // added line
+    } else { // added line
+        [self setSelected:NO animated:NO]; // added line
+    } // added line
+	  _zIndex = zIndex;
+	  self.layer.zPosition = _zIndex;
 }
 
 @end
