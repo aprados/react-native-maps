@@ -30,7 +30,10 @@ android {
   }
 
   lintOptions {
-    disable 'InvalidPackage'
+    ignoreWarnings true
+    abortOnError false
+    checkReleaseBuilds false
+    disable 'TypographyFractions','TypographyQuotes'
   }
 
   compileOptions {
